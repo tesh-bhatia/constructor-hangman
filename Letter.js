@@ -1,6 +1,6 @@
 function Letter (letter) {
     this.letter = letter;
-    this.showing = " __";
+    this.showing = "__";
     this.guessed = false;
     
     this.check = function(guessedLetter){
