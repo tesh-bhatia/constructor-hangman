@@ -1,19 +1,16 @@
 var inquirer = require('inquirer');
 var colors = require('colors');
 var Word = require('./Word');
+var randomWords = require('random-words')
 
 
-console.log('Hello world'.cyan)
-
-var guesses = 10;
-var words = ['dog', 'cat', 'hamster', 'parakeet'];
+var guesses = 15;
 var word = '';
 var correctGuess = false;
 
 function initGame() {
-    guesses = 10
-    var randomNum = Math.floor(Math.random() * words.length)
-    word = new Word(words[randomNum])
+    guesses = 15
+    word = new Word(randomWords()) //use node package to generate random word
     word.createLetters()
 }
 
@@ -48,6 +45,7 @@ function playGame () {
         }else if(guesses === 0){
             console.log('\n===================')
             console.log('GAME OVER'.red)
+            console.log(word.word.red)
             console.log('===================')
 
             playAgain()
@@ -76,3 +74,5 @@ function playAgain () {
 
 initGame()
 playGame()
+
+
